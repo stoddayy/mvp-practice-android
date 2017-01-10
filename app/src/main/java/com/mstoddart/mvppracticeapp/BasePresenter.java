@@ -5,4 +5,7 @@ package com.mstoddart.mvppracticeapp;
  */
 
 public interface BasePresenter {
+
+    void start();
+
 }
