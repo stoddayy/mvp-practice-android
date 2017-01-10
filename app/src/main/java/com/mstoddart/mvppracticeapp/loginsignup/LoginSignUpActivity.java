@@ -1,14 +1,20 @@
 package com.mstoddart.mvppracticeapp.loginsignup;
 
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.FrameLayout;
 
 import com.mstoddart.mvppracticeapp.R;
+import com.mstoddart.mvppracticeapp.loginsignup.login.LoginFragment;
+import com.mstoddart.mvppracticeapp.loginsignup.signup.SignupFragment;
 
 public class LoginSignUpActivity extends AppCompatActivity implements LoginSignupFragmentInteractionListener{
 
-    private FragmentManager fragMan;
+    private FrameLayout flFragContainer;
+    private FragmentManager mFragmentManager;
+    private FragmentTransaction mTransaction;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,26 +29,36 @@ public class LoginSignUpActivity extends AppCompatActivity implements LoginSignu
     }
 
     private void setupFrameLayout(){
-
+        flFragContainer = (FrameLayout) findViewById(R.id.fl_frag_container);
     }
 
     private void setupFragManager(){
-        fragMan = getSupportFragmentManager();
+        mFragmentManager = getSupportFragmentManager();
     }
 
 
     @Override
     public void setLoginFrag() {
-
+        mTransaction = mFragmentManager.beginTransaction();
+        mTransaction.replace(flFragContainer.getId(), LoginFragment.newInstance());
+        mTransaction.commit();
     }
 
     @Override
     public void setSignupFrag() {
-
+        mTransaction = mFragmentManager.beginTransaction();
+        mTransaction.replace(flFragContainer.getId(), SignupFragment.newInstance());
+        mTransaction.addToBackStack(null);
+        mTransaction.commit();
     }
 
     @Override
     public void navigateToPokemonActivity() {
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
     }
 }

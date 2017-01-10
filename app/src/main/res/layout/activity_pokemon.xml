@@ -4,4 +4,7 @@
     android:id="@+id/fl_frag_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.mstoddart.mvppracticeapp.loginsignup.LoginSignUpActivity" />
+    tools:context="com.mstoddart.mvppracticeapp.pokemons.PokemonActivity" />
+
+
+
