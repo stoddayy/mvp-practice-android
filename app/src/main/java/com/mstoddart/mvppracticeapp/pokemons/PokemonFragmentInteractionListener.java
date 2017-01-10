@@ -5,4 +5,8 @@ package com.mstoddart.mvppracticeapp.pokemons;
  */
 
 public interface PokemonFragmentInteractionListener {
+
+    void setPokeListFrag();
+    void setPokeDetailFrag();
+
 }

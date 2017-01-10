@@ -5,4 +5,10 @@ package com.mstoddart.mvppracticeapp.loginsignup;
  */
 
 public interface LoginSignupFragmentInteractionListener {
+
+    void setLoginFrag();
+    void setSignupFrag();
+
+    void navigateToPokemonActivity();
+
 }
