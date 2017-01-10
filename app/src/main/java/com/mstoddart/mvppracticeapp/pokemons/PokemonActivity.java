@@ -1,9 +1,11 @@
-package com.mstoddart.mvppracticeapp;
+package com.mstoddart.mvppracticeapp.pokemons;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
+import com.mstoddart.mvppracticeapp.R;
+
+public class PokemonActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
