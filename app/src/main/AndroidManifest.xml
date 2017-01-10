@@ -9,14 +9,15 @@
         android:supportsRtl="true"
         android:name=".utils.AppController"
         android:theme="@style/AppTheme">
-        <activity android:name=".pokemons.PokemonActivity">
+        <activity android:name=".pokemons.PokemonActivity"/>
+        <activity android:name=".loginsignup.LoginSignUpActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".loginsignup.LoginSignUpActivity"></activity>
     </application>
 
 </manifest>

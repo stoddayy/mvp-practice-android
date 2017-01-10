@@ -64,8 +64,6 @@ public class LoginFragment extends Fragment implements LoginContract.View {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_login, container, false);
 
-
-
         setupTextViews(rootView);
         setupButtons(rootView);
         setupEditTexts(rootView);
@@ -79,7 +77,15 @@ public class LoginFragment extends Fragment implements LoginContract.View {
     }
 
     private void setupTextViews(View view){
+        txtLoginTitle = (TextView) view.findViewById(R.id.txt_login_title);
+        txtLoginSwitchToSignUp = (TextView) view.findViewById(R.id.txt_login_swith_to_sign_up);
 
+        txtLoginSwitchToSignUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                switchToSignUp();
+            }
+        });
     }
 
     private void setupButtons(View view){
@@ -99,5 +105,10 @@ public class LoginFragment extends Fragment implements LoginContract.View {
         }
 
 
+    }
+
+    @Override
+    public void switchToSignUp() {
+        fragListener.setSignupFrag();
     }
 }
