@@ -1,6 +1,5 @@
 package com.mstoddart.mvppracticeapp.loginsignup.login;
 
-import android.widget.EditText;
 
 import com.mstoddart.mvppracticeapp.BasePresenter;
 import com.mstoddart.mvppracticeapp.BaseView;
@@ -12,19 +11,25 @@ import com.mstoddart.mvppracticeapp.utils.FieldValidationCallback;
 
 public interface LoginContract {
 
-    interface View extends BaseView<Presenter>{
 
-        EditText getLoginEmailEt();
-        EditText getLoginPasswordEt();
+    /**
+     * View alters any UI that the PRESENTER may need ie.
+     * setTitle(), setDescription(), showProgressIndicator(), showErrorr(), showPopUp()
+     */
+    interface View extends BaseView<Presenter>{
 
         void switchToSignUp();
 
 
     }
 
+    /**
+     * Presenter does work (Business logic) ie.
+     * addTask(), saveTask(), makeAPICall(), validateFields()
+     */
     interface Presenter extends BasePresenter{
 
-        void validateFields(FieldValidationCallback callback);
+        void validateLoginFields(String email, String Password, FieldValidationCallback callback);
 
     }
 

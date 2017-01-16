@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.mstoddart.mvppracticeapp.R;
 import com.mstoddart.mvppracticeapp.loginsignup.LoginSignupFragmentInteractionListener;
@@ -94,15 +95,15 @@ public class LoginFragment extends Fragment implements LoginContract.View {
         btnLoginConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mPresenter.validateFields(new FieldValidationCallback() {
+                mPresenter.validateLoginFields(etLoginEmail.getText().toString(), etLoginPassword.getText().toString(), new FieldValidationCallback() {
                     @Override
                     public void onSuccess() {
-
+                        fragListener.navigateToPokemonActivity();
                     }
 
                     @Override
                     public void onFail(String errorCode) {
-
+                        Toast.makeText(mContext, "Error, check email and password", Toast.LENGTH_SHORT).show();
                     }
                 });
             }
@@ -121,16 +122,6 @@ public class LoginFragment extends Fragment implements LoginContract.View {
         } else {
             throw new RuntimeException();
         }
-    }
-
-    @Override
-    public EditText getLoginEmailEt() {
-        return etLoginEmail;
-    }
-
-    @Override
-    public EditText getLoginPasswordEt() {
-        return etLoginPassword;
     }
 
     @Override
