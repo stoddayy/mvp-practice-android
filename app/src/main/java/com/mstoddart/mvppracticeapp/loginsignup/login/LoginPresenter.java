@@ -1,5 +1,7 @@
 package com.mstoddart.mvppracticeapp.loginsignup.login;
 
+import com.mstoddart.mvppracticeapp.utils.FieldValidationCallback;
+
 /**
  * Created by MichaelApposing on 10/01/2017.
  */
@@ -21,6 +23,11 @@ public class LoginPresenter implements LoginContract.Presenter {
 
     @Override
     public void start() {
+
+    }
+
+    @Override
+    public void validateFields(FieldValidationCallback callback) {
 
     }
 }

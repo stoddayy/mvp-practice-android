@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import com.mstoddart.mvppracticeapp.R;
 import com.mstoddart.mvppracticeapp.loginsignup.LoginSignupFragmentInteractionListener;
-
+import com.mstoddart.mvppracticeapp.utils.FieldValidationCallback;
 
 
 /**
@@ -89,11 +89,29 @@ public class LoginFragment extends Fragment implements LoginContract.View {
     }
 
     private void setupButtons(View view){
+        btnLoginConfirm = (Button) view.findViewById(R.id.btn_login_confirm);
 
+        btnLoginConfirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mPresenter.validateFields(new FieldValidationCallback() {
+                    @Override
+                    public void onSuccess() {
+
+                    }
+
+                    @Override
+                    public void onFail(String errorCode) {
+
+                    }
+                });
+            }
+        });
     }
 
     private void setupEditTexts(View view){
-
+        etLoginEmail = (EditText) view.findViewById(R.id.et_login_email);
+        etLoginPassword = (EditText) view.findViewById(R.id.et_login_password);
     }
 
     @Override
@@ -103,8 +121,16 @@ public class LoginFragment extends Fragment implements LoginContract.View {
         } else {
             throw new RuntimeException();
         }
+    }
 
+    @Override
+    public EditText getLoginEmailEt() {
+        return etLoginEmail;
+    }
 
+    @Override
+    public EditText getLoginPasswordEt() {
+        return etLoginPassword;
     }
 
     @Override
