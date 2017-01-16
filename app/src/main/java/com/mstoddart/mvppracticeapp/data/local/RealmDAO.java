@@ -10,8 +10,8 @@ import io.realm.RealmResults;
 
 public interface RealmDAO {
 
-    void addUser();
-    RealmResults<User> getUser();
-    RealmResults<User> getAllUsers();
+    void addUser(User user, onRealmOperationCompleted mListener);
+    void getUser(String email, onRealmOperationCompleted mListener);
+    void getAllUsers(onRealmOperationCompleted mListener);
 
 }
