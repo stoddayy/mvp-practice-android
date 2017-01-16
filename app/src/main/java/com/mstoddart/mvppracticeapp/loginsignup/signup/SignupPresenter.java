@@ -27,7 +27,11 @@ public class SignupPresenter implements SignupContract.Presenter {
 
     @Override
     public void validateSignupFields(String name, String email, String password, FieldValidationCallback callback) {
-
+        if (name.length() > 0 && email.length() > 0 && password.length() > 0){
+            callback.onSuccess();
+        } else {
+            callback.onFail(null);
+        }
     }
 
     @Override

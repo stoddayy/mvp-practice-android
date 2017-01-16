@@ -1,13 +1,69 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.mstoddart.mvppracticeapp.loginsignup.signup.SignupFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:id="@+id/txt_login_title"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:text="Signup"
+        android:textColor="@android:color/black"
+        android:textSize="18sp" />
 
-</FrameLayout>
+
+    <EditText
+        android:id="@+id/et_signup_name"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:background="@android:color/darker_gray"
+        android:hint="Name"
+        android:inputType="text"
+        android:textColor="@android:color/black"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/et_signup_email"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:background="@android:color/darker_gray"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:textColor="@android:color/black"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/et_signup_password"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:background="@android:color/darker_gray"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:textColor="@android:color/black"
+        android:textSize="18sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <Button
+        android:id="@+id/btn_signup_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:text="Confirm"
+        android:textAllCaps="false"
+        android:textColor="@android:color/black"
+        android:textSize="18sp" />
+
+
+</LinearLayout>
