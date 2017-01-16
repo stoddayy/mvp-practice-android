@@ -35,4 +35,9 @@ public class LoginPresenter implements LoginContract.Presenter {
             callback.onFail(null);
         }
     }
+
+    @Override
+    public void checkUserExists() {
+
+    }
 }

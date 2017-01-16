@@ -1,5 +1,6 @@
 package com.mstoddart.mvppracticeapp.loginsignup;
 
+import android.content.Intent;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +10,7 @@ import android.widget.FrameLayout;
 import com.mstoddart.mvppracticeapp.R;
 import com.mstoddart.mvppracticeapp.loginsignup.login.LoginFragment;
 import com.mstoddart.mvppracticeapp.loginsignup.signup.SignupFragment;
+import com.mstoddart.mvppracticeapp.pokemons.PokemonActivity;
 
 public class LoginSignUpActivity extends AppCompatActivity implements LoginSignupFragmentInteractionListener{
 
@@ -54,7 +56,8 @@ public class LoginSignUpActivity extends AppCompatActivity implements LoginSignu
 
     @Override
     public void navigateToPokemonActivity() {
-
+        Intent pokemonIntent = new Intent(this, PokemonActivity.class);
+        startActivity(pokemonIntent);
     }
 
     @Override
