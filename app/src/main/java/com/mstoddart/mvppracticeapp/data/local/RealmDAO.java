@@ -11,7 +11,7 @@ import io.realm.RealmResults;
 public interface RealmDAO {
 
     void addUser(User user, onRealmOperationCompleted mListener);
-    void getUser(String email, onRealmOperationCompleted mListener);
+    User getUser(String email, onRealmOperationCompleted mListener);
     void getAllUsers(onRealmOperationCompleted mListener);
 
 }

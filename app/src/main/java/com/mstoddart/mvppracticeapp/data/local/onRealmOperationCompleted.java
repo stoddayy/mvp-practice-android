@@ -9,5 +9,4 @@ import com.mstoddart.mvppracticeapp.data.User;
 public interface onRealmOperationCompleted {
 
     void onCompleted();
-    void onCompleted(User user);
 }

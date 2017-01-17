@@ -35,10 +35,11 @@ public class RealmController implements RealmDAO {
     }
 
     @Override
-    public void getUser(String email, onRealmOperationCompleted mListener) {
+    public User getUser(String email, onRealmOperationCompleted mListener) {
         Realm realm = Realm.getDefaultInstance();
         User user = realm.where(User.class).equalTo(email.toLowerCase(), "email").findFirst();
-        mListener.onCompleted(user);
+        mListener.onCompleted();
+        return user;
     }
 
     @Override
