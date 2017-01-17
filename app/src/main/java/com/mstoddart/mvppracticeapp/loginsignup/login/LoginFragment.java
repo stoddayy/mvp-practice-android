@@ -98,12 +98,14 @@ public class LoginFragment extends Fragment implements LoginContract.View {
                 mPresenter.validateLoginFields(etLoginEmail.getText().toString(), etLoginPassword.getText().toString(), new FieldValidationCallback() {
                     @Override
                     public void onSuccess() {
-                        navigateToPokemonActivity();
+
+                        mPresenter.checkUserExists();
+
                     }
 
                     @Override
                     public void onFail(String errorCode) {
-                        Toast.makeText(mContext, "Error, check email and password", Toast.LENGTH_SHORT).show();
+                        showToast("Error, check email and password");
                     }
                 });
             }

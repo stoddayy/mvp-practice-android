@@ -96,7 +96,7 @@ public class SignupFragment extends Fragment implements SignupContract.View {
 
                     @Override
                     public void onFail(String errorCode) {
-
+                        showToast("Check your details");
                     }
                 });
             }

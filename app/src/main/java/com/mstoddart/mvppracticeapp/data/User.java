@@ -12,6 +12,8 @@ public class User extends RealmObject {
     private String email;
     private String password;
 
+    public User(){}
+
     public User(String name, String email, String password){
         this.name = name;
         this.email = email;

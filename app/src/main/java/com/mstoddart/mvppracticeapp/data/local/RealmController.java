@@ -25,7 +25,7 @@ public class RealmController implements RealmDAO {
 
         Realm realm = Realm.getDefaultInstance();
 
-        realm.executeTransactionAsync(new Realm.Transaction() {
+        realm.executeTransaction(new Realm.Transaction() {
             @Override
             public void execute(Realm realm) {
                 realm.copyToRealm(user);

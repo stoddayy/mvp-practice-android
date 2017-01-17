@@ -3,6 +3,7 @@ package com.mstoddart.mvppracticeapp.loginsignup.signup;
 
 import android.content.Context;
 import android.os.Handler;
+import android.os.Looper;
 import android.widget.Toast;
 
 import com.mstoddart.mvppracticeapp.data.User;
@@ -42,7 +43,7 @@ public class SignupPresenter implements SignupContract.Presenter {
     }
 
     @Override
-    public void saveUser(User user, Context mContext) {
+    public void saveUser(User user, final Context mContext) {
         RealmController dbController = new RealmController(mContext);
         dbController.addUser(user, new onRealmOperationCompleted() {
             @Override
