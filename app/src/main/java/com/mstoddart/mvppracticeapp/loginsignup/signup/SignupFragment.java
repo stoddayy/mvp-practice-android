@@ -7,6 +7,9 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import com.mstoddart.mvppracticeapp.R;
 import com.mstoddart.mvppracticeapp.loginsignup.LoginSignupFragmentInteractionListener;
@@ -17,6 +20,10 @@ public class SignupFragment extends Fragment implements SignupContract.View {
     private Context mContext;
 
     SignupContract.Presenter mPresenter;
+
+    private TextView txtSignupTitle;
+    private EditText etSignupName, etSignupEmail, etSignupPassword;
+    private Button btnSignupConfirm;
 
     public SignupFragment() {
         // Required empty public constructor
@@ -48,6 +55,9 @@ public class SignupFragment extends Fragment implements SignupContract.View {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_signup, container, false);
 
+        setupTextViews(view);
+        setupEditTexts(view);
+        setupButtons(view);
 
         return view;
     }
@@ -56,6 +66,27 @@ public class SignupFragment extends Fragment implements SignupContract.View {
     public void onResume() {
         super.onResume();
         mPresenter.start();
+    }
+
+    private void setupTextViews(View view){
+        txtSignupTitle = (TextView) view.findViewById(R.id.txt_signup_title);
+    }
+
+    private void setupEditTexts(View view){
+        etSignupName = (EditText) view.findViewById(R.id.et_signup_name);
+        etSignupEmail = (EditText) view.findViewById(R.id.et_signup_email);
+        etSignupPassword = (EditText) view.findViewById(R.id.et_signup_password);
+    }
+
+    private void setupButtons(View view){
+        btnSignupConfirm = (Button) view.findViewById(R.id.btn_signup_confirm);
+
+        btnSignupConfirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
     }
 
     @Override
