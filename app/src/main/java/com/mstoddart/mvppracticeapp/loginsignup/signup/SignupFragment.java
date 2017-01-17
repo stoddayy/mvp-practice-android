@@ -10,9 +10,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.mstoddart.mvppracticeapp.R;
+import com.mstoddart.mvppracticeapp.data.User;
 import com.mstoddart.mvppracticeapp.loginsignup.LoginSignupFragmentInteractionListener;
+import com.mstoddart.mvppracticeapp.utils.FieldValidationCallback;
 
 public class SignupFragment extends Fragment implements SignupContract.View {
 
@@ -84,7 +87,18 @@ public class SignupFragment extends Fragment implements SignupContract.View {
         btnSignupConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mPresenter.validateSignupFields(etSignupName.getText().toString(), etSignupEmail.getText().toString(), etSignupPassword.getText().toString(), new FieldValidationCallback() {
+                    @Override
+                    public void onSuccess() {
+                        User user = new User(etSignupName.getText().toString(), etSignupEmail.getText().toString(), etSignupPassword.getText().toString());
+                        mPresenter.saveUser(user, mContext);
+                    }
 
+                    @Override
+                    public void onFail(String errorCode) {
+
+                    }
+                });
             }
         });
     }
@@ -96,5 +110,15 @@ public class SignupFragment extends Fragment implements SignupContract.View {
         } else {
             throw new RuntimeException();
         }
+    }
+
+    @Override
+    public void navigateToPokemonActivity() {
+        fragListener.navigateToPokemonActivity();
+    }
+
+    @Override
+    public void showToast(String message) {
+        Toast.makeText(mContext, message, Toast.LENGTH_SHORT).show();
     }
 }

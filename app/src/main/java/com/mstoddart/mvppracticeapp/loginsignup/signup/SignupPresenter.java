@@ -1,6 +1,13 @@
 package com.mstoddart.mvppracticeapp.loginsignup.signup;
 
 
+import android.content.Context;
+import android.os.Handler;
+import android.widget.Toast;
+
+import com.mstoddart.mvppracticeapp.data.User;
+import com.mstoddart.mvppracticeapp.data.local.RealmController;
+import com.mstoddart.mvppracticeapp.data.local.onRealmOperationCompleted;
 import com.mstoddart.mvppracticeapp.utils.FieldValidationCallback;
 
 /**
@@ -27,7 +34,7 @@ public class SignupPresenter implements SignupContract.Presenter {
 
     @Override
     public void validateSignupFields(String name, String email, String password, FieldValidationCallback callback) {
-        if (name.length() > 0 && email.length() > 0 && password.length() > 0){
+        if (name.length() > 0 && email.length() > 0 && password.length() > 0) {
             callback.onSuccess();
         } else {
             callback.onFail(null);
@@ -35,7 +42,20 @@ public class SignupPresenter implements SignupContract.Presenter {
     }
 
     @Override
-    public void saveUser() {
+    public void saveUser(User user, Context mContext) {
+        RealmController dbController = new RealmController(mContext);
+        dbController.addUser(user, new onRealmOperationCompleted() {
+            @Override
+            public void onCompleted() {
+                mSignupView.showToast("Sign up complete");
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        mSignupView.navigateToPokemonActivity();
+                    }
+                }, Toast.LENGTH_SHORT);
 
+            }
+        });
     }
 }

@@ -19,7 +19,8 @@ public interface LoginContract {
     interface View extends BaseView<Presenter> {
 
         void switchToSignUp();
-
+        void navigateToPokemonActivity();
+        void showToast(String message);
 
     }
 

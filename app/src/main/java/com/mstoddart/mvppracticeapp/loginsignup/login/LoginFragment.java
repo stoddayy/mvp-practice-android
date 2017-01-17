@@ -98,7 +98,7 @@ public class LoginFragment extends Fragment implements LoginContract.View {
                 mPresenter.validateLoginFields(etLoginEmail.getText().toString(), etLoginPassword.getText().toString(), new FieldValidationCallback() {
                     @Override
                     public void onSuccess() {
-                        fragListener.navigateToPokemonActivity();
+                        navigateToPokemonActivity();
                     }
 
                     @Override
@@ -127,5 +127,15 @@ public class LoginFragment extends Fragment implements LoginContract.View {
     @Override
     public void switchToSignUp() {
         fragListener.setSignupFrag();
+    }
+
+    @Override
+    public void navigateToPokemonActivity() {
+        fragListener.navigateToPokemonActivity();
+    }
+
+    @Override
+    public void showToast(String message) {
+        Toast.makeText(mContext, message, Toast.LENGTH_SHORT).show();
     }
 }
